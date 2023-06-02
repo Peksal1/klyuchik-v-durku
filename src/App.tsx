@@ -403,15 +403,6 @@ const Page = () => {
               />
             </div>
           </div>
-
-          {/* <div style={{ marginLeft: "117px", width: "calc(100% - 117px)" }}>
-            {activeTab === "dashboard" && <Home />}
-            {activeTab === "stream" && <StreamPage />}
-            {activeTab === "guides" && <GuidesPage />}
-            {activeTab === "events" && <EventsPage />}
-            {activeTab === "boosting" && <BoostingPricesPage />}
-            {activeTab === "guildMembers" && <GuildMembers />}
-          </div> */}
         </div>
       </div>
       <div
@@ -423,13 +414,11 @@ const Page = () => {
       >
         <Routes>
           <Route path="/dashboard" element={<Home />} />
-          {/* <Route path="/register" element={<RegistrationPage />} /> */}
           <Route path="/events" element={<EventsPage />} />
           <Route path="/boosting" element={<BoostingPricesPage />} />
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guildMembers" element={<GuildMembers />} />
           <Route path="/stream" element={<StreamPage />} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
         </Routes>{" "}
       </div>
     </Router>

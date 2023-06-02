@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Form } from "react-bootstrap";
 import "./Guides.css";
+import CustomPagination from "../CustomPagination";
 
 interface Guide {
   id: number;
@@ -28,6 +29,7 @@ interface GuideCategory {
 const pageSize = 6;
 
 const GuidesPage: React.FC = () => {
+  const PAGE_SIZE = 40;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedSeason, setSelectedSeason] = useState<string>("");
@@ -39,10 +41,6 @@ const GuidesPage: React.FC = () => {
       .then((data) => setGuideCategories(data))
       .catch((error) => console.error(error));
   }, []);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -72,31 +70,6 @@ const GuidesPage: React.FC = () => {
     margin: "20px",
     display: "inline-block",
     verticalAlign: "top",
-  };
-
-  const CustomPagination: React.FC = () => {
-    const totalPages = Math.ceil(filteredGuides.length / pageSize);
-
-    const paginationItems = [];
-
-    for (let i = 1; i <= totalPages; i++) {
-      paginationItems.push(
-        <li
-          key={i}
-          className={`page-item ${i === currentPage ? "active" : ""}`}
-        >
-          <button className="page-link" onClick={() => handlePageChange(i)}>
-            {i}
-          </button>
-        </li>
-      );
-    }
-
-    return (
-      <nav>
-        <ul className="pagination">{paginationItems}</ul>
-      </nav>
-    );
   };
 
   return (
@@ -136,7 +109,12 @@ const GuidesPage: React.FC = () => {
           ))}
         </div>
       ))}
-      <CustomPagination />
+      <CustomPagination
+        page={currentPage}
+        pageSize={PAGE_SIZE}
+        totalItems={guidesToShow.length}
+        onPageChange={setCurrentPage}
+      />
     </>
   );
 };
