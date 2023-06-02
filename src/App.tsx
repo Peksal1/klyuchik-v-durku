@@ -20,7 +20,7 @@ import BoostingPricesPage from "./boosting";
 import EventsPage from "./events";
 import GuidesPage from "./guides";
 import Home from "./home";
-import LoginPopover from "./loginPopover";
+// import LoginPopover from "./loginPopover";
 import StreamPage from "./streams";
 import "./style.css";
 
@@ -121,7 +121,7 @@ const Page = () => {
                 color: darkTheme ? "#fff" : "#000000",
               }}
             />
-            <LoginPopover />
+            {/* <LoginPopover /> */}
             <div className={`theme-switch ${darkTheme ? "dark" : "light"}`}>
               <Form.Check
                 type="switch"
