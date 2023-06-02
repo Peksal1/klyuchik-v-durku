@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Form, Nav, Navbar, OverlayTrigger, Popover } from "react-bootstrap";
 import {
-  FaCloud,
-  FaCog,
-  FaHome,
+  FaGuilded,
+  FaCalendar,
+  FaRocket,
+  FaBook,
+  FaTrophy,
+  FaPlay,
   FaMoon,
   FaSun,
-  FaTools,
-  FaWaveSquare,
-  FaWifi,
+  FaUsers,
 } from "react-icons/fa";
+
 import {
   MdExitToApp,
   MdHelpOutline,
@@ -17,14 +19,14 @@ import {
   MdSave,
   MdSearch,
 } from "react-icons/md";
-import Dashboard from "./DashboardTab";
-import System from "./SystemTab";
 import "./style.css";
 import DrawerComponent from "./DrawerComponent";
 import EventsPage from "./events";
 import BoostingPricesPage from "./boosting";
 import GuildMembers from "./best";
 import Home from "./home";
+import StreamPage from "./streams";
+import GuidesPage from "./guides";
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -91,13 +93,6 @@ const Page = () => {
           />
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <MdSave
-            size={32}
-            style={{
-              marginRight: "10px",
-              color: darkTheme ? "#fff" : "#000000",
-            }}
-          />
           <OverlayTrigger
             trigger="click"
             placement="bottom"
@@ -190,7 +185,7 @@ const Page = () => {
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaHome
+                <FaGuilded
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -202,7 +197,7 @@ const Page = () => {
                     color: darkTheme ? "#fff" : "#000000",
                   }}
                 >
-                  Dashboard
+                  О Гильдии
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -224,7 +219,7 @@ const Page = () => {
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaCloud
+                <FaCalendar
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -232,7 +227,7 @@ const Page = () => {
                   }}
                 />
                 <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  SFC protect
+                  Ивенты
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -254,7 +249,7 @@ const Page = () => {
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaWaveSquare
+                <FaRocket
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -262,7 +257,37 @@ const Page = () => {
                   }}
                 />
                 <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  Network
+                  Бустинг
+                </span>
+              </Nav.Link>
+              <Nav.Link
+                href="#guides"
+                className={activeTab === "guides" ? "active" : ""}
+                onClick={() =>
+                  activeTab === "guides" ? null : handleTabClick("guides")
+                }
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  padding: "10px 0",
+                  borderLeft:
+                    activeTab === "guides" ? "4px solid #eca302" : "none",
+                  width: "100%",
+                  backgroundColor: "transparent",
+                  color: darkTheme ? "#fff" : "#000000",
+                }}
+              >
+                <FaBook
+                  size={24}
+                  style={{
+                    marginBottom: "5px",
+                    color: darkTheme ? "#fff" : "#000000",
+                  }}
+                />
+                <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
+                  Гайды
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -286,7 +311,7 @@ const Page = () => {
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaTools
+                <FaTrophy
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -294,16 +319,14 @@ const Page = () => {
                   }}
                 />
                 <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  Advanced
+                  Лучшие
                 </span>
               </Nav.Link>
               <Nav.Link
-                href="#access_point"
-                className={activeTab === "access_point" ? "active" : ""}
+                href="#stream"
+                className={activeTab === "stream" ? "active" : ""}
                 onClick={() =>
-                  activeTab === "access_point"
-                    ? null
-                    : handleTabClick("access_point")
+                  activeTab === "stream" ? null : handleTabClick("stream")
                 }
                 style={{
                   display: "flex",
@@ -312,13 +335,13 @@ const Page = () => {
                   textDecoration: "none",
                   padding: "10px 0",
                   borderLeft:
-                    activeTab === "access_point" ? "4px solid #eca302" : "none",
+                    activeTab === "stream" ? "4px solid #eca302" : "none",
                   width: "100%",
                   backgroundColor: "transparent",
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaWifi
+                <FaPlay
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -326,37 +349,7 @@ const Page = () => {
                   }}
                 />
                 <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  Access point
-                </span>
-              </Nav.Link>
-              <Nav.Link
-                href="#system"
-                className={activeTab === "system" ? "active" : ""}
-                onClick={() =>
-                  activeTab === "system" ? null : handleTabClick("system")
-                }
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textDecoration: "none",
-                  padding: "10px 0",
-                  borderLeft:
-                    activeTab === "system" ? "4px solid #eca302" : "none",
-                  width: "100%",
-                  backgroundColor: "transparent",
-                  color: darkTheme ? "#fff" : "#000000",
-                }}
-              >
-                <FaCog
-                  size={24}
-                  style={{
-                    marginBottom: "5px",
-                    color: darkTheme ? "#fff" : "#000000",
-                  }}
-                />
-                <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  System
+                  Стримы
                 </span>
               </Nav.Link>
               <Nav.Link
@@ -378,7 +371,7 @@ const Page = () => {
                   color: darkTheme ? "#fff" : "#000000",
                 }}
               >
-                <FaWaveSquare
+                <FaUsers
                   size={24}
                   style={{
                     marginBottom: "5px",
@@ -386,7 +379,7 @@ const Page = () => {
                   }}
                 />
                 <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
-                  Status
+                  Статик
                 </span>
               </Nav.Link>
             </Nav>
@@ -417,7 +410,8 @@ const Page = () => {
 
         <div style={{ marginLeft: "117px", width: "calc(100% - 117px)" }}>
           {activeTab === "dashboard" && <Home />}
-          {activeTab === "system" && <System deviceName="Balance_A59A" />}
+          {activeTab === "stream" && <StreamPage />}
+          {activeTab === "guides" && <GuidesPage />}
           {activeTab === "events" && <EventsPage />}
           {activeTab === "boosting" && <BoostingPricesPage />}
           {activeTab === "guildMembers" && <GuildMembers />}
