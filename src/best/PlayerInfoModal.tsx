@@ -164,6 +164,7 @@ const PlayerInfoModal: React.FC<PlayerInfoModalProps> = ({
           )
           .mythic_level.toString();
         cellColor = "grey";
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         tooltipContent =
           `${getWeeklyTextFromDungeonLevel(highestRuns[7].mythic_level)}\n` +
           "Лучшие подземелья:\n\n" +

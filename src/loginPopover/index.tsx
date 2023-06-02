@@ -94,6 +94,7 @@ const LoginPopover = () => {
     fetchUser();
   }, [onFinish]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleVisibleChange = (visible: boolean) => {
     setVisible(visible);
   };

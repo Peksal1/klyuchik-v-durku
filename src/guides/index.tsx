@@ -63,6 +63,7 @@ const GuidesPage: React.FC = () => {
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const guidesToShow = filteredGuides.slice(startIndex, endIndex);
 
   const cardStyle = {
@@ -129,13 +130,6 @@ const GuidesPage: React.FC = () => {
           </div>
           {category.guides.map((guide: Guide) => (
             <Card key={guide.id} style={cardStyle}>
-              {/* {guide.images.length > 0 && (
-                <Avatar
-                  size={80}
-                  style={{ display: 'block', margin: '0 auto', marginBottom: '10px' }}
-                  src={guide.images[0].url}
-                />
-              )} */}
               <div className="guide-title-style">{guide.title}</div>
               <div className="guide-description-style">{guide.content}</div>
             </Card>
