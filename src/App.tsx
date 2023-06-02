@@ -160,6 +160,11 @@ const Page = () => {
                   as={Link}
                   to="/dashboard"
                   className={activeTab === "dashboard" ? "active" : ""}
+                  onClick={() =>
+                    activeTab === "dashboard"
+                      ? null
+                      : handleTabClick("dashboard")
+                  }
                   style={{
                     display: "flex",
                     flexDirection: "column",
