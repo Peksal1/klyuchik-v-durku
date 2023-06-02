@@ -1,0 +1,43 @@
+.overlay {
+  display: none;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  margin-right: 100px;
+  left: -240px; /* Adjust the initial position of the drawer */
+  width: 240px; /* Adjust the width of the drawer */
+  height: 100%;
+  background-color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.open {
+  transform: translateX(357px); /* Adjust the distance from the left side */
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.drawer-body {
+  padding: 10px;
+}
+
+.close-button {
+  margin-left: 10px;
+}
+
+.content-container {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+.drawer.open ~ .content-container {
+  transform: translateX(240px); /* Adjust the width of the drawer */
+}
