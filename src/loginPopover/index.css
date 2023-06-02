@@ -1,0 +1,68 @@
+/* Styling for the login popover */
+.login-popover .popover-header {
+  color: #1890ff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Styling for the login form */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-control {
+  border-radius: 4px;
+}
+
+.input-group-text svg {
+  color: #8c8c8c;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #1890ff;
+}
+
+.login-button {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.login-button:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.forgot-password {
+  color: #1890ff;
+}
+
+.forgot-password:hover {
+  color: #40a9ff;
+}
+
+.register-link {
+  margin-left: 8px;
+}
+
+.register-button {
+  border-color: #e8bb3d;
+  background-color: #e8bb3d;
+  color: #fff;
+}
+
+.register-button:hover {
+  border-color: #d7aa35;
+  background-color: #d7aa35;
+}
+
+/* Styling for the auth dropdown */
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  margin-top: 4px;
+}
