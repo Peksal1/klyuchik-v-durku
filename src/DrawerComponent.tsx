@@ -5,7 +5,7 @@ import "./DrawerComponent.css"; // Import CSS file for styling
 type DrawerProps = {
   show: boolean;
   onClose: () => void;
-  drawerType: "system" | "advanced" | "status";
+  drawerType: "system" | "guides" | "status";
 };
 
 const DrawerComponent: React.FC<DrawerProps> = ({
@@ -23,11 +23,11 @@ const DrawerComponent: React.FC<DrawerProps> = ({
             <Button variant="success">Button 3</Button>
           </>
         );
-      case "advanced":
+      case "guides":
         return (
           <>
-            <Button variant="warning">Button 4</Button>
-            <Button variant="danger">Button 5</Button>
+            <Button variant="warning">DragonFligh 1 сезон</Button>
+            <Button variant="danger">DragonFligh 2 сезон</Button>
           </>
         );
       case "status":

@@ -28,9 +28,9 @@ const Page = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [showPopover, setShowPopover] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
-  const [drawerType, setDrawerType] = useState<
-    "system" | "advanced" | "status"
-  >("system");
+  const [drawerType, setDrawerType] = useState<"system" | "guides" | "status">(
+    "guides"
+  );
   const [darkTheme, setDarkTheme] = useState(false); // New state for dark theme
 
   const handleTabClick = (tab: string) => {
@@ -41,7 +41,7 @@ const Page = () => {
     setShowPopover(!showPopover);
   };
 
-  const handleDrawerToggle = (type: "system" | "advanced" | "status") => {
+  const handleDrawerToggle = (type: "system" | "guides" | "status") => {
     setShowDrawer(true);
     setDrawerType(type);
   };
@@ -391,9 +391,9 @@ const Page = () => {
                   Open System Drawer
                 </button>
               )}{" "}
-              {activeTab === "advanced" && (
-                <button onClick={() => handleDrawerToggle("advanced")}>
-                  Open Advanced Drawer
+              {activeTab === "guides" && (
+                <button onClick={() => handleDrawerToggle("guides")}>
+                  Категории
                 </button>
               )}
               {activeTab === "status" && (

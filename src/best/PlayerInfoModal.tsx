@@ -218,10 +218,10 @@ const PlayerInfoModal: React.FC<PlayerInfoModalProps> = ({
   return (
     <Modal
       title={`${playerInfo.name}`}
-      visible={playerInfoModalVisible}
-      onCancel={handleClosePlayerModal}
+      show={playerInfoModalVisible}
+      onHide={handleClosePlayerModal}
       footer={null}
-      width="50%"
+      size="xl"
     >
       <Row gutter={16}>
         <Col span={8}>
