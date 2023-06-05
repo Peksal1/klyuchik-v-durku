@@ -1,6 +1,7 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Accordion } from "react-bootstrap";
 import "./DrawerComponent.css"; // Import CSS file for styling
+import { HiArrowNarrowLeft } from "react-icons/hi"; // Import the required icon
 
 type DrawerProps = {
   show: boolean;
@@ -13,30 +14,104 @@ const DrawerComponent: React.FC<DrawerProps> = ({
   onClose,
   drawerType,
 }) => {
-  const renderButtons = () => {
+  const [selectedItem, setSelectedItem] = useState<string>(""); // Track the selected item
+
+  const handleItemClick = (itemName: string) => {
+    setSelectedItem(itemName); // Update the selected item
+  };
+
+  const renderAccordionButtons = () => {
     switch (drawerType) {
-      case "system":
-        return (
-          <>
-            <Button variant="primary">Button 1</Button>
-            <Button variant="secondary">Button 2</Button>
-            <Button variant="success">Button 3</Button>
-          </>
-        );
       case "guides":
         return (
-          <>
-            <Button variant="warning">DragonFligh 1 сезон</Button>
-            <Button variant="danger">DragonFligh 2 сезон</Button>
-          </>
-        );
-      case "status":
-        return (
-          <>
-            <Button variant="info">Button 6</Button>
-            <Button variant="light">Button 7</Button>
-            <Button variant="dark">Button 8</Button>
-          </>
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>DragonFlight Season 1</Accordion.Header>
+              <Accordion.Body>
+                <div className="buttons-container">
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 1" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 1")}
+                  >
+                    Эпохальный+
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 2" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 2")}
+                  >
+                    Рейды
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 3" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 3")}
+                  >
+                    Классовые фишки
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 4" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 4")}
+                  >
+                    Полезные вещи
+                  </Button>
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>DragonFlight Season 2</Accordion.Header>
+              <Accordion.Body>
+                <div className="buttons-container">
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 5" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 5")}
+                  >
+                    Эпохальный+
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 6" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 6")}
+                  >
+                    Рейды
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 7" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 7")}
+                  >
+                    Классовые фишки
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    className={`drawer-button ${
+                      selectedItem === "Button 8" ? "active" : ""
+                    }`}
+                    onClick={() => handleItemClick("Button 8")}
+                  >
+                    Полезные вещи
+                  </Button>
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         );
       default:
         return null;
@@ -45,20 +120,15 @@ const DrawerComponent: React.FC<DrawerProps> = ({
 
   return (
     <>
-      {show && <div className="overlay" onClick={onClose} />}{" "}
-      {/* Add overlay */}
+      {show && <div className="overlay" onClick={onClose} />}
       <div className={`drawer ${show ? "open" : ""}`}>
         <div className="drawer-header">
-          <h3>{drawerType} Drawer</h3>
-          <Button
-            variant="outline-dark"
-            onClick={onClose}
-            className="close-button"
-          >
-            Close
-          </Button>
+          <h3>Категории</h3>
+          <button className="close-button" onClick={onClose}>
+            <HiArrowNarrowLeft /> {/* Use the hamburger with left arrow icon */}
+          </button>
         </div>
-        <div className="drawer-body">{renderButtons()}</div>
+        <div className="drawer-body">{renderAccordionButtons()}</div>
       </div>
     </>
   );

@@ -6,31 +6,53 @@
   position: fixed;
   top: 0;
   margin-right: 100px;
-  left: -240px; /* Adjust the initial position of the drawer */
-  width: 240px; /* Adjust the width of the drawer */
+  left: -240px;
+  width: 240px;
   height: 100%;
   background-color: white;
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .open {
-  transform: translateX(357px); /* Adjust the distance from the left side */
+  transform: translateX(357px);
 }
 
 .drawer-header {
   display: flex;
+  height: 80px;
   align-items: center;
+  z-index: 1000000000000000000000000000000;
   justify-content: space-between;
+  background: #f0f0f0;
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
 .drawer-body {
+  flex: 1;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .close-button {
   margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000;
+  padding: 5px;
+}
+
+.close-button:focus {
+  outline: none;
 }
 
 .content-container {
@@ -39,5 +61,45 @@
 }
 
 .drawer.open ~ .content-container {
-  transform: translateX(240px); /* Adjust the width of the drawer */
+  transform: translateX(240px);
+}
+
+/* Accordion styles */
+
+.card-header {
+  background-color: #f8f9fa;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: black;
+}
+
+.drawer-button:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+.drawer-button.active {
+  color: orange;
 }

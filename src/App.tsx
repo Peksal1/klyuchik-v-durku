@@ -73,7 +73,7 @@ const Page = () => {
             height: "80px",
             width: "100%",
             position: "fixed",
-            zIndex: "1000",
+            zIndex: "1",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -386,19 +386,9 @@ const Page = () => {
               </Nav>
             </Navbar>
             <div>
-              {activeTab === "system" && (
-                <button onClick={() => handleDrawerToggle("system")}>
-                  Open System Drawer
-                </button>
-              )}{" "}
               {activeTab === "guides" && (
                 <button onClick={() => handleDrawerToggle("guides")}>
                   Категории
-                </button>
-              )}
-              {activeTab === "status" && (
-                <button onClick={() => handleDrawerToggle("status")}>
-                  Open Status Drawer
                 </button>
               )}
               <DrawerComponent
