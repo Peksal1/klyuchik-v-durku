@@ -1,0 +1,29 @@
+.crafting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.profession {
+  margin-bottom: 20px;
+}
+
+.recipe-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.recipe-table th,
+.recipe-table td {
+  max-width: 300px;
+  word-break: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  .crafting-grid {
+    grid-template-columns: 1fr;
+  }
+}

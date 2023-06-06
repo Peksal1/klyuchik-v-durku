@@ -1,54 +1,133 @@
+import React from "react";
 import { Container, Table } from "react-bootstrap";
-import { FaCampground, FaFlask } from "react-icons/fa";
+import { FaFlask, FaGem, FaHammer } from "react-icons/fa";
+import { GiSpellBook, GiRolledCloth } from "react-icons/gi";
+
+import "./index.css"; // Import the CSS file for styling
 
 const data = [
-  {
-    profession: "Кузнечное дело",
-    icon: <FaCampground />,
-    recipes: [
-      { name: "Plate Helmet", crafters: ["John", "Lisa"], itemLevel: 200 },
-      { name: "Plate Gauntlets", crafters: ["Mark", "Sarah"], itemLevel: 195 },
-    ],
-  },
   {
     profession: "Алхимия",
     icon: <FaFlask />,
     recipes: [
-      { name: "Health Potion", crafters: ["Tom"], itemLevel: 50 },
-      { name: "Mana Potion", crafters: ["Emily", "Mike"], itemLevel: 55 },
+      {
+        tiers: [
+          {
+            tier: "-",
+            crafters: ["-", "-"],
+            itemLevel: "-",
+          },
+        ],
+      },
+      // Add more tiers and crafters here
     ],
   },
+  {
+    profession: "Кузнечное дело",
+    icon: <FaHammer />,
+    recipes: [
+      {
+        tiers: [
+          {
+            tier: "-",
+            crafters: ["-"],
+            itemLevel: "-",
+          },
+        ],
+      },
+      // Add more tiers and crafters here
+    ],
+  },
+  {
+    profession: "Наложение чар",
+    icon: <GiSpellBook />,
+    recipes: [
+      {
+        tiers: [
+          {
+            tier: "Гребни",
+            crafters: ["Лератель", "Клиерма"],
+            itemLevel: "-",
+          },
+        ],
+      },
+      // Add more tiers and crafters here
+    ],
+  },
+  {
+    profession: "Портняжное дело",
+    icon: <GiRolledCloth />,
+    recipes: [
+      {
+        tiers: [
+          {
+            tier: "Пульсирующий плащ из спор",
+            crafters: ["Чоски"],
+            itemLevel: "T5",
+          },
+        ],
+      },
+      // Add more tiers and crafters here
+    ],
+  },
+  {
+    profession: "Ювелирное дело",
+    icon: <FaGem />,
+    recipes: [
+      {
+        tiers: [{ tier: "-", crafters: ["-"], itemLevel: "-" }],
+      },
+      // Add more tiers and crafters here
+    ],
+  },
+
   // Add more professions here with their corresponding icons and recipe data
 ];
 
 function CraftingPage() {
   return (
-    <Container>
-      {data.map((professionData) => (
-        <div key={professionData.profession}>
-          <h2>
-            {professionData.icon} {professionData.profession}
-          </h2>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Рецепт</th>
-                <th>Мастер</th>
-                <th>Максимальный тир</th>
-              </tr>
-            </thead>
-            <tbody>
-              {professionData.recipes.map((recipe) => (
-                <tr key={recipe.name}>
-                  <td>{recipe.name}</td>
-                  <td>{recipe.crafters.join(", ")}</td>
-                  <td>{recipe.itemLevel}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
-      ))}
+    <Container fluid>
+      <div className="crafting-grid">
+        {data.map((professionData) => (
+          <div key={professionData.profession} className="profession">
+            <h2>
+              {professionData.icon} {professionData.profession}
+            </h2>
+            {professionData.recipes.map((recipe) => (
+              <Table
+                key={professionData.profession}
+                striped
+                bordered
+                hover
+                className="recipe-table"
+              >
+                <thead>
+                  <tr>
+                    <th>Рецепт</th>
+                    <th>Мастер</th>
+                    <th>Тир</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recipe.tiers.map((tier) => (
+                    <React.Fragment key={tier.tier}>
+                      {tier.crafters.map((crafter, index) => (
+                        <tr key={crafter}>
+                          {index === 0 && (
+                            <td rowSpan={tier.crafters.length}>{tier.tier}</td>
+                          )}
+                          <td>{crafter}</td>
+                          <td>{tier.itemLevel}</td>
+                        </tr>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </Table>
+            ))}
+          </div>
+        ))}
+      </div>
     </Container>
   );
 }
