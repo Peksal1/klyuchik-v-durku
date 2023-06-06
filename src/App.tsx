@@ -18,11 +18,19 @@ import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import DrawerComponent from "./DrawerComponent";
 import GuildMembers from "./best";
 import BoostingPricesPage from "./boosting";
+import Crafting from "./crafting";
 import EventsPage from "./events";
 import GuidesPage from "./guides";
+import DF1Features from "./guides/df1/features";
+import DF1MPlus from "./guides/df1/mplus";
+import DF1Raid from "./guides/df1/raid";
+import DF1Useful from "./guides/df1/useful";
+import DF2Features from "./guides/df2/features";
+import DF2MPlus from "./guides/df2/mplus";
+import DF2Raid from "./guides/df2/raid";
+import DF2Useful from "./guides/df2/useful";
 import Home from "./home";
 import LoginPopover from "./loginPopover";
-import Crafting from "./crafting";
 import StreamPage from "./streams";
 import "./style.css";
 
@@ -37,6 +45,7 @@ const Page = () => {
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab === activeTab ? "" : tab);
+    handleDrawerClose();
   };
 
   const togglePopover = () => {
@@ -448,7 +457,15 @@ const Page = () => {
           <Route path="/guildMembers" element={<GuildMembers />} />
           <Route path="/crafting" element={<Crafting />} />
           <Route path="/stream" element={<StreamPage />} />
-        </Routes>{" "}
+          <Route path="/df1/mplus" element={<DF1MPlus />} />
+          <Route path="/df1/raid" element={<DF1Raid />} />
+          <Route path="/df1/features" element={<DF1Features />} />
+          <Route path="/df1/useful" element={<DF1Useful />} />
+          <Route path="/df2/mplus" element={<DF2MPlus />} />
+          <Route path="/df2/raid" element={<DF2Raid />} />
+          <Route path="/df2/features" element={<DF2Features />} />
+          <Route path="/df2/useful" element={<DF2Useful />} />
+        </Routes>
       </div>
     </Router>
   );

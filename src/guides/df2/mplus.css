@@ -1,0 +1,35 @@
+.dungeon-grid {
+  margin: 0 -10px;
+}
+
+.dungeon-grid > .col {
+  padding: 0 10px;
+}
+
+@media (max-width: 576px) {
+  .dungeon-grid > .col {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .dungeon-grid > .col {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .dungeon-grid > .col {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .dungeon-grid > .col {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
