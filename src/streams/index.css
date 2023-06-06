@@ -1,0 +1,22 @@
+.stream-page {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.stream-tabs {
+  height: 100%;
+  flex: 1;
+}
+
+.tab-pane {
+  height: 100%;
+}
+
+.stream-card {
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
