@@ -8,6 +8,7 @@ import {
   FaPlay,
   FaRocket,
   FaSun,
+  FaTools,
   FaTrophy,
   FaUsers,
 } from "react-icons/fa";
@@ -21,6 +22,7 @@ import EventsPage from "./events";
 import GuidesPage from "./guides";
 import Home from "./home";
 // import LoginPopover from "./loginPopover";
+import Crafting from "./crafting";
 import StreamPage from "./streams";
 import "./style.css";
 
@@ -354,6 +356,37 @@ const Page = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
+                  to="/crafting"
+                  className={activeTab === "crafting" ? "active" : ""}
+                  onClick={() =>
+                    activeTab === "crafting" ? null : handleTabClick("crafting")
+                  }
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    padding: "10px 0",
+                    borderLeft:
+                      activeTab === "crafting" ? "4px solid #eca302" : "none",
+                    width: "100%",
+                    backgroundColor: "transparent",
+                    color: darkTheme ? "#fff" : "#000000",
+                  }}
+                >
+                  <FaTools
+                    size={24}
+                    style={{
+                      marginBottom: "5px",
+                      color: darkTheme ? "#fff" : "#000000",
+                    }}
+                  />
+                  <span style={{ color: darkTheme ? "#fff" : "#000000" }}>
+                    Крафт
+                  </span>
+                </Nav.Link>
+                <Nav.Link
+                  as={Link}
                   to="/status"
                   className={activeTab === "status" ? "active" : ""}
                   onClick={() =>
@@ -413,6 +446,7 @@ const Page = () => {
           <Route path="/boosting" element={<BoostingPricesPage />} />
           <Route path="/guides" element={<GuidesPage />} />
           <Route path="/guildMembers" element={<GuildMembers />} />
+          <Route path="/crafting" element={<Crafting />} />
           <Route path="/stream" element={<StreamPage />} />
         </Routes>{" "}
       </div>
