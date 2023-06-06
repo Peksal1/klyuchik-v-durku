@@ -1,1 +1,1 @@
-web: pm2 start /app/.heroku/node/bin/npm -- start
+web: pm2 start npm -- start
