@@ -1,43 +1,10 @@
 import React from "react";
 import { Container, Table } from "react-bootstrap";
-import { FaFlask, FaGem, FaHammer } from "react-icons/fa";
-import { GiSpellBook, GiRolledCloth } from "react-icons/gi";
+import { GiRolledCloth, GiSpellBook } from "react-icons/gi";
 
 import "./index.css"; // Import the CSS file for styling
 
 const data = [
-  {
-    profession: "Алхимия",
-    icon: <FaFlask />,
-    recipes: [
-      {
-        tiers: [
-          {
-            tier: "-",
-            crafters: ["-", "-"],
-            itemLevel: "-",
-          },
-        ],
-      },
-      // Add more tiers and crafters here
-    ],
-  },
-  {
-    profession: "Кузнечное дело",
-    icon: <FaHammer />,
-    recipes: [
-      {
-        tiers: [
-          {
-            tier: "-",
-            crafters: ["-"],
-            itemLevel: "-",
-          },
-        ],
-      },
-      // Add more tiers and crafters here
-    ],
-  },
   {
     profession: "Наложение чар",
     icon: <GiSpellBook />,
@@ -66,16 +33,6 @@ const data = [
             itemLevel: "T5",
           },
         ],
-      },
-      // Add more tiers and crafters here
-    ],
-  },
-  {
-    profession: "Ювелирное дело",
-    icon: <FaGem />,
-    recipes: [
-      {
-        tiers: [{ tier: "-", crafters: ["-"], itemLevel: "-" }],
       },
       // Add more tiers and crafters here
     ],
