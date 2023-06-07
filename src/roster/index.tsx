@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Badge } from "react-bootstrap";
 import { GiSwordsEmblem, GiHealing, GiHeavyHelm } from "react-icons/gi";
+import { getClassColor } from "../helpers/utils";
 
 interface Player {
   name: string;
@@ -15,6 +16,7 @@ const players: Player[] = [
   { name: "Клиерма", role: "Healer", mainRoster: "main" },
   { name: "Чоски", role: "Healer", mainRoster: "main" },
   { name: "Ура", role: "Healer", mainRoster: "main" },
+  { name: "Умбарс", role: "Healer", mainRoster: "trial" },
   { name: "Кайлендер", role: "DPS", mainRoster: "main" },
   { name: "Фрегас", role: "DPS", mainRoster: "main" },
   { name: "Щугадэди", role: "DPS", mainRoster: "main" },
@@ -26,7 +28,9 @@ const players: Player[] = [
   { name: "Аэльдрим", role: "DPS", mainRoster: "main" },
   { name: "Кларок", role: "DPS", mainRoster: "main" },
   { name: "Акстрил", role: "DPS", mainRoster: "main" },
+  { name: "Дайтехапку", role: "DPS", mainRoster: "main" },
   { name: "Балантиель", role: "DPS", mainRoster: "standin" },
+  { name: "Хеллскон", role: "DPS", mainRoster: "trial" },
   { name: "Анурэль", role: "DPS", mainRoster: "trial" },
 ];
 
@@ -67,7 +71,9 @@ const RosterCard = ({ player }: { player: Player }) => {
         style={{ maxWidth: "100%", maxHeight: "150px" }}
       />
       <Card.Body>
-        <Card.Title>{playerInfo.name}</Card.Title>
+        <Card.Title style={{ color: getClassColor(playerInfo.class) }}>
+          {playerInfo.name}
+        </Card.Title>
         <div>
           {player.mainRoster === "standin" && (
             <Badge className="badge-secondary">Замена</Badge>

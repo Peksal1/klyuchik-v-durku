@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import PlayerInfoModal from "./PlayerInfoModal.tsx";
 import CustomPagination from "../CustomPagination.tsx";
+import { getClassColor } from "../helpers/utils.tsx";
 
 export interface GuildMember {
   character: {
@@ -108,39 +109,6 @@ const GuildMembers: React.FC = () => {
     setSearchTerm(value);
     setPage(1);
   }, []);
-
-  function getClassColor(className: string): string {
-    switch (className) {
-      case "Warrior":
-        return "#C79C6E";
-      case "Monk":
-        return "#00FF98";
-      case "Evoker":
-        return "#33937F";
-      case "Demon Hunter":
-        return "#A330C9";
-      case "Death Knight":
-        return "#C41E3A";
-      case "Paladin":
-        return "#F58CBA";
-      case "Hunter":
-        return "#ABD473";
-      case "Rogue":
-        return "#FFF569";
-      case "Priest":
-        return "#FFFFFF";
-      case "Shaman":
-        return "#0070DE";
-      case "Mage":
-        return "#40C7EB";
-      case "Warlock":
-        return "#8787ED";
-      case "Druid":
-        return "#FF7D0A";
-      default:
-        return "#FFFFFF";
-    }
-  }
 
   const handleOpenPlayerModal = useCallback((name: string) => {
     setPlayerModalVisible(true);
