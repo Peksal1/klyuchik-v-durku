@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Accordion } from "react-bootstrap";
-import "./DrawerComponent.css"; // Import CSS file for styling
+import { Accordion, Button } from "react-bootstrap";
 import { HiArrowNarrowLeft } from "react-icons/hi"; // Import the required icon
 import { Link } from "react-router-dom";
+import "./DrawerComponent.css"; // Import CSS file for styling
 
 type DrawerProps = {
   show: boolean;

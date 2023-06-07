@@ -31,6 +31,7 @@ import DF2Raid from "./guides/df2/raid";
 import DF2Useful from "./guides/df2/useful";
 import Home from "./home";
 import LoginPopover from "./loginPopover";
+import GuildRoster from "./roster";
 import StreamPage from "./streams";
 import "./style.css";
 
@@ -396,10 +397,10 @@ const Page = () => {
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
-                  to="/status"
-                  className={activeTab === "status" ? "active" : ""}
+                  to="/roster"
+                  className={activeTab === "roster" ? "active" : ""}
                   onClick={() =>
-                    activeTab === "status" ? null : handleTabClick("status")
+                    activeTab === "roster" ? null : handleTabClick("roster")
                   }
                   style={{
                     display: "flex",
@@ -408,7 +409,7 @@ const Page = () => {
                     textDecoration: "none",
                     padding: "10px 0",
                     borderLeft:
-                      activeTab === "status" ? "4px solid #eca302" : "none",
+                      activeTab === "roster" ? "4px solid #eca302" : "none",
                     width: "100%",
                     backgroundColor: "transparent",
                     color: darkTheme ? "#fff" : "#000000",
@@ -457,6 +458,7 @@ const Page = () => {
           <Route path="/guildMembers" element={<GuildMembers />} />
           <Route path="/crafting" element={<Crafting />} />
           <Route path="/stream" element={<StreamPage />} />
+          <Route path="/roster" element={<GuildRoster />} />
           <Route path="/df1/mplus" element={<DF1MPlus />} />
           <Route path="/df1/raid" element={<DF1Raid />} />
           <Route path="/df1/features" element={<DF1Features />} />
