@@ -53,7 +53,6 @@ const RosterCard = ({ rosterPlayer }: { rosterPlayer: RosterPlayer }) => {
             ),
           }}
         >
-          {playerInfo.mythic_plus_weekly_highest_level_runs[1]?.mythic_level}
           {playerInfo.mythic_plus_scores_by_season[0].scores.all} Рио
         </div>
         <div>
