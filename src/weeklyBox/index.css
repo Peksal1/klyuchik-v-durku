@@ -1,0 +1,38 @@
+.roster-container {
+  max-height: 200px;
+  max-width: 300px;
+  align-items: flex-start;
+  overflow-y: auto;
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.roster-list {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.player-cell {
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.player-name {
+  margin-right: 10px;
+}
+
+.player-progress {
+  margin-top: 10px;
+}
+
+.empty .progress-bar {
+  background-color: transparent;
+}
+
+.yellow .progress-bar {
+  background-color: yellow;
+}
+
+.green .progress-bar {
+  background-color: green;
+}

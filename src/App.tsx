@@ -170,7 +170,7 @@ const Page = () => {
               <Nav className="flex-column">
                 <Nav.Link
                   as={Link}
-                  to="/dashboard"
+                  to="/"
                   className={activeTab === "dashboard" ? "active" : ""}
                   onClick={() =>
                     activeTab === "dashboard"
@@ -451,7 +451,7 @@ const Page = () => {
         }}
       >
         <Routes>
-          <Route path="/dashboard" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/boosting" element={<BoostingPricesPage />} />
           <Route path="/guides" element={<GuidesPage />} />
