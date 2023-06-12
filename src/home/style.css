@@ -1,0 +1,155 @@
+/* Body styles */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 15px 15px;
+  padding: 10px;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+h2 {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* InfoPage styles */
+.info-page {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.info-page p {
+  margin-bottom: 20px;
+}
+
+.info-page ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.info-page ol li {
+  margin-bottom: 5px;
+}
+
+.info-page strong {
+  font-weight: bold;
+}
+
+.info-page .discord-link {
+  color: #fff;
+  background-color: #7289da;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.info-page .discord-link:hover {
+  background-color: #677bc4;
+}
+
+.info-page .contact-info {
+  margin-top: 20px;
+}
+
+.info-page .contact-info ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info-page .contact-info ul li {
+  flex: 1 1 200px;
+  margin-right: 10px;
+}
+
+/* styles.css */
+
+.discord-card {
+  background-color: #36393f;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: 40px;
+  margin-top: 60px;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.discord-img {
+  margin: 24px;
+  width: 64px;
+  height: 64px;
+}
+
+.discord-title {
+  display: inline-block;
+  color: #fff;
+}
+
+.discord-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.discord-subtitle {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.discord-button {
+  width: 100%;
+}
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+  .info-page .contact-info ul li {
+    flex: 1 1 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
