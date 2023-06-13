@@ -3,7 +3,7 @@ import { Badge, Card, Col, Row } from "react-bootstrap";
 import { GiHealing, GiHeavyHelm, GiSwordsEmblem } from "react-icons/gi";
 import { RosterPlayer, rosterPlayers } from "../helpers/data";
 import { getClassColor, getColorByScore } from "../helpers/utils";
-import RosterMath from "../weeklyBox";
+// import RosterMath from "../weeklyBox";
 
 const RaidSchedule = () => (
   <div>
@@ -32,6 +32,14 @@ const RosterCard = ({ rosterPlayer }: { rosterPlayer: RosterPlayer }) => {
   if (isPageLoading) {
     return <div>Загрузка...</div>;
   }
+  const getPlayerProgress = (playerInfo: any) => {
+    const runs = playerInfo.mythic_plus_weekly_highest_level_runs || [];
+    const closed20Count = runs
+      .slice(0, 8)
+      .filter((run: any) => run?.mythic_level >= 20).length;
+
+    return closed20Count;
+  };
 
   return (
     <Col xs={12} sm={6} md={6} lg={4} xl={3}>
@@ -52,8 +60,13 @@ const RosterCard = ({ rosterPlayer }: { rosterPlayer: RosterPlayer }) => {
                 {playerInfo.name}
               </Card.Title>
               <div style={{ color: "white" }}>
-                {playerInfo.gear.item_level_equipped} Илвл
+                {playerInfo.active_spec_name} {playerInfo.class}
               </div>
+              <div style={{ color: "white" }}>
+                {playerInfo.gear.item_level_equipped} Илвл{", "}
+                {getPlayerProgress(playerInfo)}/8 викли
+              </div>
+              <div style={{ color: "white" }}></div>
               <div
                 style={{
                   color: getColorByScore(
@@ -84,7 +97,7 @@ const GuildRoster = () => (
     <Row>
       <Col>
         <RaidSchedule />
-        <RosterMath />
+        {/* <RosterMath /> */}
       </Col>
     </Row>
     <Row>
