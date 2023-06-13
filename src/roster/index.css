@@ -1,0 +1,60 @@
+.guild-roster-container {
+  padding: 20px;
+}
+
+.roster-card-container {
+  margin: 10px;
+  background: #333333;
+}
+
+.roster-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.roster-card-img {
+  width: 80px;
+  height: 80px;
+}
+
+.roster-card-title {
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.roster-card-item-level {
+  margin-bottom: 5px;
+}
+
+.roster-card-rio-score {
+  margin-bottom: 5px;
+}
+
+.roster-card-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  .roster-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .roster-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .roster-card-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

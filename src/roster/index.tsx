@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+import { Badge, Card, Col, Row } from "react-bootstrap";
 import { GiHealing, GiHeavyHelm, GiSwordsEmblem } from "react-icons/gi";
 import { RosterPlayer, rosterPlayers } from "../helpers/data";
 import { getClassColor, getColorByScore } from "../helpers/utils";
@@ -34,42 +34,53 @@ const RosterCard = ({ rosterPlayer }: { rosterPlayer: RosterPlayer }) => {
   }
 
   return (
-    <Card style={{ width: "12rem", margin: "10px" }}>
-      <a href={playerInfo.profile_url}>
-        <Card.Img
-          variant="top"
-          src={playerInfo.thumbnail_url}
-          style={{ maxWidth: "100%", maxHeight: "150px" }}
-        />
-      </a>
-      <Card.Body>
-        <Card.Title style={{ color: getClassColor(playerInfo.class) }}>
-          {playerInfo.name}
-        </Card.Title>
-        <div
-          style={{
-            color: getColorByScore(
-              playerInfo.mythic_plus_scores_by_season[0].scores.all
-            ),
-          }}
-        >
-          {playerInfo.mythic_plus_scores_by_season[0].scores.all} Рио
-        </div>
-        <div>
-          {rosterPlayer.mainRoster === "standin" && (
-            <Badge className="badge-secondary">Замена</Badge>
-          )}
-          {rosterPlayer.mainRoster === "trial" && (
-            <Badge className="badge-info">Пробный</Badge>
-          )}
-        </div>
-      </Card.Body>
-    </Card>
+    <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+      <Card style={{ margin: "10px", background: "#333333" }}>
+        <Row className="align-items-center">
+          <Col xs={3} className="text-center">
+            <a href={playerInfo.profile_url}>
+              <img
+                src={playerInfo.thumbnail_url}
+                alt="Player Thumbnail"
+                style={{ width: "80px", height: "80px", marginLeft: "20px" }}
+              />
+            </a>
+          </Col>
+          <Col xs={9}>
+            <Card.Body>
+              <Card.Title style={{ color: getClassColor(playerInfo.class) }}>
+                {playerInfo.name}
+              </Card.Title>
+              <div style={{ color: "white" }}>
+                {playerInfo.gear.item_level_equipped} Илвл
+              </div>
+              <div
+                style={{
+                  color: getColorByScore(
+                    playerInfo.mythic_plus_scores_by_season[0].scores.all
+                  ),
+                }}
+              >
+                {playerInfo.mythic_plus_scores_by_season[0].scores.all} Рио
+              </div>
+              <div>
+                {rosterPlayer.mainRoster === "standin" && (
+                  <Badge className="badge-secondary">Замена</Badge>
+                )}
+                {rosterPlayer.mainRoster === "trial" && (
+                  <Badge className="badge-info">Пробный</Badge>
+                )}
+              </div>
+            </Card.Body>
+          </Col>
+        </Row>
+      </Card>
+    </Col>
   );
 };
 
 const GuildRoster = () => (
-  <Container>
+  <div className="guild-roster-container">
     <Row>
       <Col>
         <RaidSchedule />
@@ -118,7 +129,7 @@ const GuildRoster = () => (
         </Row>
       </Col>
     </Row>
-  </Container>
+  </div>
 );
 
 export default GuildRoster;
