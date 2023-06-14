@@ -28,6 +28,7 @@ export const rosterPlayers: RosterPlayer[] = [
   { name: "Кларок", role: "DPS", mainRoster: "main" },
   { name: "Акстрил", role: "DPS", mainRoster: "main" },
   { name: "Дайтехапку", role: "DPS", mainRoster: "main" },
+  { name: "Макэль", role: "DPS", mainRoster: "standin" },
   { name: "Балантиель", role: "DPS", mainRoster: "standin" },
   { name: "Воксхолл", role: "DPS", mainRoster: "standin" },
   { name: "Кенитель", role: "DPS", mainRoster: "standin" },
