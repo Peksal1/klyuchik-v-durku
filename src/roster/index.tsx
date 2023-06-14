@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Badge, Card, Col, Row } from "react-bootstrap";
+import { FaUserAlt } from "react-icons/fa";
 import { GiHealing, GiHeavyHelm, GiSwordsEmblem } from "react-icons/gi";
 import { RosterPlayer, rosterPlayers } from "../helpers/data";
 import { getClassColor, getColorByScore } from "../helpers/utils";
@@ -77,6 +78,9 @@ const RosterCard = ({ rosterPlayer }: { rosterPlayer: RosterPlayer }) => {
                 {playerInfo.mythic_plus_scores_by_season[0].scores.all} Рио
               </div>
               <div>
+                {rosterPlayer.mainRoster === "alt" && (
+                  <Badge className="badge-info">{rosterPlayer.main}</Badge>
+                )}
                 {rosterPlayer.mainRoster === "standin" && (
                   <Badge className="badge-secondary">Замена</Badge>
                 )}
@@ -103,11 +107,15 @@ const GuildRoster = () => (
     <Row>
       <Col>
         <h2>
-          <GiHeavyHelm style={{ fontSize: "2rem" }} /> Танки
+          <GiHeavyHelm style={{ fontSize: "2rem", marginLeft: "10px" }} /> Танки
         </h2>
         <Row>
           {rosterPlayers
-            .filter((rosterPlayer) => rosterPlayer.role === "Tank")
+            .filter(
+              (rosterPlayer) =>
+                rosterPlayer.role === "Tank" &&
+                rosterPlayer.mainRoster !== "alt"
+            )
             .map((rosterPlayer) => (
               <RosterCard key={rosterPlayer.name} rosterPlayer={rosterPlayer} />
             ))}
@@ -117,11 +125,15 @@ const GuildRoster = () => (
     <Row>
       <Col>
         <h2>
-          <GiHealing style={{ fontSize: "2rem" }} /> Хилы
+          <GiHealing style={{ fontSize: "2rem", marginLeft: "10px" }} /> Хилы
         </h2>
         <Row>
           {rosterPlayers
-            .filter((rosterPlayer) => rosterPlayer.role === "Healer")
+            .filter(
+              (rosterPlayer) =>
+                rosterPlayer.role === "Healer" &&
+                rosterPlayer.mainRoster !== "alt"
+            )
             .map((rosterPlayer) => (
               <RosterCard key={rosterPlayer.name} rosterPlayer={rosterPlayer} />
             ))}
@@ -131,11 +143,28 @@ const GuildRoster = () => (
     <Row>
       <Col>
         <h2>
-          <GiSwordsEmblem style={{ fontSize: "2rem" }} /> ДД
+          <GiSwordsEmblem style={{ fontSize: "2rem", marginLeft: "10px" }} /> ДД
         </h2>
         <Row>
           {rosterPlayers
-            .filter((rosterPlayer) => rosterPlayer.role === "DPS")
+            .filter(
+              (rosterPlayer) =>
+                rosterPlayer.role === "DPS" && rosterPlayer.mainRoster !== "alt"
+            )
+            .map((rosterPlayer) => (
+              <RosterCard key={rosterPlayer.name} rosterPlayer={rosterPlayer} />
+            ))}
+        </Row>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <h2>
+          <FaUserAlt style={{ fontSize: "2rem", marginLeft: "10px" }} /> Альты
+        </h2>
+        <Row>
+          {rosterPlayers
+            .filter((rosterPlayer) => rosterPlayer.mainRoster === "alt")
             .map((rosterPlayer) => (
               <RosterCard key={rosterPlayer.name} rosterPlayer={rosterPlayer} />
             ))}
@@ -144,5 +173,4 @@ const GuildRoster = () => (
     </Row>
   </div>
 );
-
 export default GuildRoster;
