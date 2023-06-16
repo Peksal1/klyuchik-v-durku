@@ -43,3 +43,35 @@ export const rosterPlayers: RosterPlayer[] = [
   { name: "Кайлендер", role: "DPS", mainRoster: "alt", main: "Хамингодк" },
   { name: "Лератель", role: "Tank", mainRoster: "alt", main: "Хамингодк" },
 ];
+
+export interface Guide {
+  id: number;
+  image: string;
+  link: string;
+  name: string;
+  description: string;
+  tag: string;
+}
+
+export const guides: Guide[] = [
+  {
+    id: 1,
+    image: "https://media.wago.io/cards/ak3iS95aa/c-1682987110859.jpg",
+    link: "https://wago.io/ak3iS95aa",
+    name: "Плейтер ГМа",
+    description:
+      "Достаточно удобный для ключей, подходит для всех ролей + удобно смотрится с ВАшкой на КД абилок враждебных целей.",
+    tag: "Плейтер",
+  },
+  {
+    id: 2,
+    image:
+      "https://media.wago.io/screenshots/B-saNwgCJ/6438294259d40fc4ff1f3cee.png",
+    link: "https://wago.io/CooldownsOnNameplate",
+    name: "КД абилок врагов",
+    description:
+      "ВА в дополнению к плейтеру, около плашки хп противника идут таймеры на их абилки. Очень удобно для ключей, в рейде тоже полезно бывает",
+    tag: "ВАшка",
+  },
+  // Add more guide objects as needed
+];
