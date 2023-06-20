@@ -18,9 +18,9 @@ export const rosterPlayers: RosterPlayer[] = [
   { name: "Ура", role: "Healer", mainRoster: "main" },
   { name: "Фрегас", role: "DPS", mainRoster: "main" },
   { name: "Щугадэди", role: "DPS", mainRoster: "main" },
-  { name: "Виндрилла", role: "DPS", mainRoster: "main" },
   { name: "Гачистрф", role: "DPS", mainRoster: "main" },
   { name: "Абмудок", role: "DPS", mainRoster: "main" },
+  { name: "Хэллскон", role: "DPS", mainRoster: "main" },
   { name: "Доррети", role: "DPS", mainRoster: "main" },
   { name: "Кромь", role: "DPS", mainRoster: "main" },
   { name: "Анурэль", role: "DPS", mainRoster: "main" },
@@ -37,10 +37,10 @@ export const rosterPlayers: RosterPlayer[] = [
   { name: "Умбарс", role: "Healer", mainRoster: "trial" },
   { name: "Локаутт", role: "DPS", mainRoster: "trial" },
   { name: "Ледигарга", role: "DPS", mainRoster: "trial" },
-  { name: "Хеллскон", role: "DPS", mainRoster: "trial" },
   { name: "Люциферб", role: "DPS", mainRoster: "trial" },
   { name: "Флоцка", role: "Healer", mainRoster: "alt", main: "Клиерма" },
   { name: "Кайлендер", role: "DPS", mainRoster: "alt", main: "Хамингодк" },
+  { name: "Хеллскон", role: "DPS", mainRoster: "trial", main: "Хэллскон" },
   { name: "Лератель", role: "Tank", mainRoster: "alt", main: "Хамингодк" },
 ];
 
