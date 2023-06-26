@@ -6,7 +6,6 @@ export interface RosterPlayer {
 }
 
 export const rosterPlayers: RosterPlayer[] = [
-  { name: "Флексаняша", role: "DPS", mainRoster: "main" },
   { name: "Хамингодк", role: "Tank", mainRoster: "main" },
   { name: "Аирфлекс", role: "Tank", mainRoster: "main" },
   { name: "Халдр", role: "DPS", mainRoster: "main" },
@@ -30,11 +29,10 @@ export const rosterPlayers: RosterPlayer[] = [
   { name: "Кларок", role: "DPS", mainRoster: "main" },
   { name: "Акстрил", role: "DPS", mainRoster: "main" },
   { name: "Дайтехапку", role: "DPS", mainRoster: "main" },
+  { name: "Флексаняша", role: "DPS", mainRoster: "standin" },
   { name: "Ялюблюквас", role: "DPS", mainRoster: "standin" },
-  { name: "Макэль", role: "DPS", mainRoster: "standin" },
   { name: "Воксхолл", role: "DPS", mainRoster: "standin" },
   { name: "Кенитель", role: "DPS", mainRoster: "standin" },
-  { name: "Рашиндос", role: "DPS", mainRoster: "standin" },
   { name: "Шукашилётигр", role: "Healer", mainRoster: "standin" },
   { name: "Умбарс", role: "Healer", mainRoster: "trial" },
   { name: "Локаутт", role: "DPS", mainRoster: "trial" },
